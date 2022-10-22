@@ -1,0 +1,31 @@
+.bande{
+    background-color: black;
+    padding: 15px;
+    border-radius: 0 0 5px 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+h1 {
+    margin: 0px;
+    font-size: 30px;
+    color: whitesmoke;
+    padding-top:5px;
+    vertical-align: middle;
+}
+#liste{
+    padding-left: 5%;
+    padding-top:1em;
+    line-height: 2em;
+}
+
+.search {
+    width: 30%;
+    padding:0;
+    background-color: whitesmoke;
+}
+
+ul li {
+    font-size: 20px;
+} 
