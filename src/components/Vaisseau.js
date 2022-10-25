@@ -1,6 +1,9 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+
+import Header from "./Header";
+
 export default class Vaisseau extends React.Component {
   state = {
     vaisseau: [],
@@ -30,24 +33,27 @@ export default class Vaisseau extends React.Component {
   render() {
     return (
       <div>
-        <div className="bande">
-          <h1>{this.state.vaisseau.name}</h1>
+        <Header name={this.state.vaisseau.name} />
+        <div className="caracs">
+          <div className="caracs-p">
+            <h3>Modèle : {this.state.vaisseau.model}</h3>
+            <h3>Constructeur : {this.state.vaisseau.manufacturer}</h3>
+            <h3>Pilotes du vaisseau:</h3>
+          </div>
+          <div className="caracs-vaisseaux">
+            <ul>
+              {this.state.pilotes !== 0 ? (
+                this.state.pilotes.map((pilot) => (
+                  <li key={pilot.id}>
+                    <Link to={`/Personnage/${pilot.id}`}>{pilot.name}</Link>
+                  </li>
+                ))
+              ) : (
+                <li>Aucun pilote</li>
+              )}
+            </ul>
+          </div>
         </div>
-        <h3>Modèle : {this.state.vaisseau.model}</h3>
-        <h3>Constructeur : {this.state.vaisseau.manufacturer}</h3>
-        <h3>Pilotes du vaisseau:</h3>
-        <ul>
-          {this.state.pilotes !== 0 ? (
-            this.state.pilotes.map((pilot) => (
-              <li key={pilot.id}>
-                <Link to={`/Personnage/${pilot.id}`}>{pilot.name}</Link>
-              </li>
-            ))
-          ) : (
-            <li>Aucun pilote</li>
-          )}
-        </ul>
-        <Link to="/">Retour à la page d'accueil</Link>
       </div>
     );
   }

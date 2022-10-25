@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import CircularProgress from "@mui/material/CircularProgress";
 
 export default class Personnages extends React.Component {
   state = {
@@ -33,15 +34,22 @@ export default class Personnages extends React.Component {
   render() {
     return (
       <div id="liste">
-        <ul>
-          {this.state.persons
-            .filter((val) => val.name.toLowerCase().includes(this.props.search.toLowerCase()))
-            .map((val) => (
-              <li key={this.state.persons.indexOf(val)}>
-                <Link to={`/Personnage/${val.id}`}>{val.name}</Link>
-              </li>
-            ))}
-        </ul>
+        {this.state.persons.length === 0 ? (
+          <div className="loader">
+            <CircularProgress  />
+            <h1>Chargement des personnages<span class="dots"><span>.</span><span>.</span><span>.</span></span></h1>
+          </div>
+        ) : (
+          true
+        )}
+
+        {this.state.persons
+          .filter((val) =>
+            val.name.toLowerCase().includes(this.props.search.toLowerCase())
+          )
+          .map((val) => (
+            <Link to={`/Personnage/${val.id}`}>{val.name}</Link>
+          ))}
       </div>
     );
   }

@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Personnage from './Personnage';
-import NotFound from './NotFound';
-import Vaisseau from './Vaisseau';
+import Personnage from './components/Personnage';
+import NotFound from './components/NotFound';
+import Vaisseau from './components/Vaisseau';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

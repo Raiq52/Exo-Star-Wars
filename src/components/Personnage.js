@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Header from "./Header";
+
 export default class Personnage extends React.Component {
   state = {
     person: [],
@@ -28,25 +30,24 @@ export default class Personnage extends React.Component {
   render() {
     return (
       <div>
-        <div className="bande">
-          <h1>{this.state.person.name}</h1>
+        <Header name={this.state.person.name}/>
+        <div className="caracs">
+          <div className="caracs-p">
+            <h3>Couleur des yeux : {this.state.person.eye_color}</h3>
+            <h3>Année de naissance : {this.state.person.birth_year}</h3>
+            <h3>Genre: {this.state.person.gender}</h3>
+            <h3>Vaisseaux utilisés :</h3>
+          </div>
+          <div className="caracs-vaisseaux">
+              {this.state.vaisseaux.length !== 0 ? (
+                this.state.vaisseaux.map((vaisseau) => (
+                    <Link to={`/Vaisseau/${vaisseau.id}`}>{vaisseau.name}</Link>
+                ))
+              ) : (
+                <p>Aucun vaisseau</p>
+              )}
+          </div>
         </div>
-        <h3>Couleur des yeux : {this.state.person.eye_color}</h3>
-        <h3>Année de naissance : {this.state.person.birth_year}</h3>
-        <h3>Genre: {this.state.person.gender}</h3>
-        <h3>Vaisseaux utilisés :</h3>
-        <ul>
-          {this.state.vaisseaux.length !== 0 ? (
-            this.state.vaisseaux.map((vaisseau) => (
-              <li key={vaisseau.id}>
-                <Link to={`/Vaisseau/${vaisseau.id}`}>{vaisseau.name}</Link>
-              </li>
-            ))
-          ) : (
-            <li>Aucun vaisseau</li>
-          )}
-        </ul>
-        <Link to="/">Retour à la page d'accueil</Link>
       </div>
     );
   }
