@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Header from "./Header";
 
+
 export default class Personnage extends React.Component {
   state = {
     person: [],
@@ -33,7 +34,10 @@ export default class Personnage extends React.Component {
         <Header name={this.state.person.name}/>
         <div className="caracs">
           <div className="caracs-p">
-            <h3>Couleur des yeux : {this.state.person.eye_color}</h3>
+            <div className="eye">
+              <h3> Couleur des yeux : {this.state.person.eye_color} </h3>
+              <div className="circle" style={{backgroundColor : this.state.person.eye_color}}></div> 
+            </div>
             <h3>Année de naissance : {this.state.person.birth_year}</h3>
             <h3>Genre: {this.state.person.gender}</h3>
             <h3>Vaisseaux utilisés :</h3>

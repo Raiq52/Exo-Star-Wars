@@ -138,7 +138,16 @@
   flex-direction: column;
   gap: 0.5em;
 }
-
+.caracs-p .eye{
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+}
+.caracs-p .eye .circle{
+  width : 10px !important;
+  height: 10px !important;
+  border-radius: 100%;
+}
 .caracs-vaisseaux {
   display: flex;
   flex-direction: column;
@@ -149,3 +158,4 @@
     text-decoration: none;
     color: black;
 }
+
