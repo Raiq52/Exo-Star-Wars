@@ -29,3 +29,14 @@ h1 {
 ul li {
     font-size: 20px;
 } 
+
+.div{
+    display: flex;
+    align-items: center;
+}
+.MuiFormControl-root{
+    height: 2em;
+}
+.MuiFormLabel-root{
+padding:0;
+}
